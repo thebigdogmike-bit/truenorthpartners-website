@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>True North Partners AI</title>
+<meta name="description" content="True North Partners AI deploys intelligent marketing systems for small and mid-sized businesses — generating qualified leads and converted clients on a performance-based model.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap">
+
+<style>
+  /* Layout: single-column editorial with a full-bleed dark hero, then light content sections */
+  :root {
+    --bg: #F7F6F2;
+    --bg-alt: #FFFFFF;
+    --fg: #1A1A18;
+    --fg-muted: #5A5A54;
+    --accent: #1B4F72;
+    --accent-light: #2E86C1;
+    --gold: #B8912A;
+    --hero-bg: #0D1F2D;
+    --hero-fg: #E8E4DC;
+    --hero-muted: #8FA3B1;
+    --divider: #DDD9CF;
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0F1A24;
+      --bg-alt: #162330;
+      --fg: #E8E4DC;
+      --fg-muted: #8FA3B1;
+      --accent: #2E86C1;
+      --accent-light: #5DADE2;
+      --gold: #D4AC40;
+      --divider: #1E3040;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0F1A24;
+    --bg-alt: #162330;
+    --fg: #E8E4DC;
+    --fg-muted: #8FA3B1;
+    --accent: #2E86C1;
+    --accent-light: #5DADE2;
+    --gold: #D4AC40;
+    --divider: #1E3040;
+    color-scheme: dark;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: env(safe-area-inset-top, 0px);
+    left: 0; right: 0;
+    z-index: 100;
+    background: rgba(13, 31, 45, 0.92);
+    backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 16px;
+    padding-left: max(32px, env(safe-area-inset-left, 0px));
+    padding-right: max(32px, env(safe-area-inset-right, 0px));
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0 0 auto;
+    height: env(safe-area-inset-top, 0px);
+    background: rgba(13, 31, 45, 0.92);
+    z-index: 101;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #E8E4DC;
+    letter-spacing: 0.02em;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold);
+    color: #0D1F2D;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    border-radius: 2px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--hero-bg);
+    color: var(--hero-fg);
+    padding-top: calc(env(safe-area-inset-top, 0px) + 120px);
+    padding-bottom: 100px;
+    padding-left: max(32px, env(safe-area-inset-left, 0px));
+    padding-right: max(32px, env(safe-area-inset-right, 0px));
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .hero-inner {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+  h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-weight: 700;
+    line-height: 1.15;
+    text-wrap: balance;
+    margin-bottom: 28px;
+    color: var(--hero-fg);
+  }
+  .hero-sub {
+    font-size: 1.15rem;
+    font-weight: 300;
+    color: var(--hero-muted);
+    max-width: 580px;
+    margin-bottom: 48px;
+    line-height: 1.7;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: #0D1F2D;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 14px 32px;
+    border-radius: 2px;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-ghost {
+    color: var(--hero-muted);
+    font-size: 0.85rem;
+    font-weight: 400;
+    text-decoration: none;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(143,163,177,0.4);
+  }
+
+  /* SECTIONS */
+  section {
+    padding-block: 80px;
+    padding-left: max(32px, env(safe-area-inset-left, 0px));
+    padding-right: max(32px, env(safe-area-inset-right, 0px));
+  }
+  .section-inner {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .section-eyebrow {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 700;
+    line-height: 1.2;
+    text-wrap: balance;
+    color: var(--fg);
+    margin-bottom: 20px;
+  }
+  .section-lead {
+    font-size: 1.05rem;
+    color: var(--fg-muted);
+    max-width: 560px;
+    margin-bottom: 48px;
+    line-height: 1.75;
+  }
+
+  /* HOW IT WORKS */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 32px;
+    counter-reset: steps;
+  }
+  .step {
+    counter-increment: steps;
+    position: relative;
+    padding-top: 48px;
+    border-top: 1px solid var(--divider);
+  }
+  .step::before {
+    content: counter(steps, decimal-leading-zero);
+    position: absolute;
+    top: 16px;
+    left: 0;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    font-variant-numeric: tabular-nums;
+  }
+  .step h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--fg);
+  }
+  .step p {
+    font-size: 0.9rem;
+    color: var(--fg-muted);
+    line-height: 1.65;
+  }
+
+  /* NICHES */
+  .alt-section { background: var(--bg-alt); }
+  .niches {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+    margin-top: 32px;
+  }
+  .niche {
+    padding: 16px 20px;
+    border: 1px solid var(--divider);
+    border-radius: 2px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--fg);
+    background: var(--bg);
+  }
+  .niche-icon {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  /* PROOF POINTS */
+  .proof-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 32px;
+    margin-top: 40px;
+  }
+  .proof-item { text-align: center; }
+  .proof-number {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .proof-label {
+    font-size: 0.82rem;
+    color: var(--fg-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+  }
+
+  /* CTA BAND */
+  .cta-band {
+    background: var(--hero-bg);
+    color: var(--hero-fg);
+    text-align: center;
+    padding-block: 80px;
+    padding-left: max(32px, env(safe-area-inset-left, 0px));
+    padding-right: max(32px, env(safe-area-inset-right, 0px));
+  }
+  .cta-band h2 { color: var(--hero-fg); margin-bottom: 16px; }
+  .cta-band .section-lead { color: var(--hero-muted); margin-left: auto; margin-right: auto; margin-bottom: 36px; text-align: center; }
+  .contact-email {
+    display: inline-block;
+    font-size: 1.1rem;
+    color: var(--gold);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(184,145,42,0.4);
+    text-decoration: none;
+    margin-bottom: 32px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #07111A;
+    color: #4A6070;
+    font-size: 0.8rem;
+    padding-block: 32px;
+    padding-left: max(32px, env(safe-area-inset-left, 0px));
+    padding-right: max(32px, env(safe-area-inset-right, 0px));
+    padding-bottom: calc(32px + env(safe-area-inset-bottom, 0px));
+  }
+  .footer-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-logo {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    color: #8FA3B1;
+    font-size: 0.9rem;
+  }
+  .footer-logo span { color: var(--gold); }
+
+  @media (max-width: 540px) {
+    .hero-actions { flex-direction: column; align-items: flex-start; }
+    .footer-inner { flex-direction: column; gap: 8px; }
+    nav { padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+    section { padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+    .hero { padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">True North<span>.</span>ai</div>
+  <a class="nav-cta" href="mailto:michael@truenorthpartners.ai">Get Started</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">AI-Powered Client Acquisition</div>
+    <h1>You Pay When We Deliver Customers. Not Before.</h1>
+    <p class="hero-sub">True North Partners AI deploys intelligent marketing systems for small and mid-sized businesses — generating qualified leads and converted clients on a performance-based model. No retainers. No guesswork. Results.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="mailto:michael@truenorthpartners.ai">Talk to Us</a>
+      <a class="btn-ghost" href="#how-it-works">See how it works →</a>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works">
+  <div class="section-inner">
+    <div class="section-eyebrow">The Model</div>
+    <h2>AI That Earns Its Place</h2>
+    <p class="section-lead">Most marketing agencies bill for effort. We bill for outcomes. Here's how we build a system that only wins when you do.</p>
+    <div class="steps">
+      <div class="step">
+        <h3>Niche Intelligence</h3>
+        <p>We map your market, your competitors, and your ideal customer — building an AI that knows your industry cold.</p>
+      </div>
+      <div class="step">
+        <h3>System Build</h3>
+        <p>Our AI engine runs your outreach, nurtures leads, and qualifies prospects before they ever reach you.</p>
+      </div>
+      <div class="step">
+        <h3>Converted Clients</h3>
+        <p>You receive customers — not leads, not click reports. Clients who have agreed to move forward.</p>
+      </div>
+      <div class="step">
+        <h3>Performance Billing</h3>
+        <p>Our fee is tied to what we deliver. If the system doesn't perform, you don't pay for performance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NICHES -->
+<section class="alt-section">
+  <div class="section-inner">
+    <div class="section-eyebrow">Who We Serve</div>
+    <h2>Seven Industries. One Standard.</h2>
+    <p class="section-lead">We go deep rather than wide — specializing in seven niches where our AI systems have the most leverage.</p>
+    <div class="niches">
+      <div class="niche"><span class="niche-icon">🏥</span>Healthcare &amp; Medical Practices</div>
+      <div class="niche"><span class="niche-icon">⚖️</span>Legal Services</div>
+      <div class="niche"><span class="niche-icon">🏠</span>Real Estate</div>
+      <div class="niche"><span class="niche-icon">💰</span>Financial Services</div>
+      <div class="niche"><span class="niche-icon">🏗️</span>Home Services &amp; Contractors</div>
+      <div class="niche"><span class="niche-icon">🎓</span>Education &amp; Coaching</div>
+      <div class="niche"><span class="niche-icon">🛒</span>Retail &amp; E-Commerce</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section>
+  <div class="section-inner">
+    <div class="section-eyebrow">The Difference</div>
+    <h2>Built on a Simple Premise</h2>
+    <p class="section-lead">The agency model is broken. Clients pay for activity while results stay optional. We built True North on the opposite premise.</p>
+    <div class="proof-grid">
+      <div class="proof-item">
+        <div class="proof-number">100%</div>
+        <div class="proof-label">Performance-Based</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-number">7</div>
+        <div class="proof-label">Focused Niches</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-number">AI</div>
+        <div class="proof-label">Powered Systems</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-number">$0</div>
+        <div class="proof-label">Until You Win</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div class="section-inner">
+    <div class="section-eyebrow">Ready to Start</div>
+    <h2>Let's Find Your True North</h2>
+    <p class="section-lead">If you're in one of our seven niches and ready to pay for customers — not promises — reach out directly.</p>
+    <div>
+      <div style="font-size:0.75rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--hero-muted);margin-bottom:12px;">Email us at</div>
+      <span class="contact-email">michael@truenorthpartners.ai</span>
+    </div>
+    <div>
+      <a class="btn-primary" href="mailto:michael@truenorthpartners.ai">Start the Conversation</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">True North Partners<span>.</span>ai</div>
+    <div>© 2026 True North Partners AI LLC</div>
+    <div>2108 N Street, Suite N · Sacramento, CA 95816</div>
+    <div>(858) 299-7551</div>
+  </div>
+</footer>
+
+</html>
